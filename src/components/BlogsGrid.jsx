@@ -21,10 +21,6 @@ const BlogsGrid = ({ blogs, onViewBlog }) => {
                 {blog.content.substring(0, 120) + '...'}
               </Card.Text>
               <div className="d-flex justify-content-between align-items-center mt-auto pt-3 border-top">
-                <small className="text-muted">
-                  <i className="bi bi-calendar me-1"></i>
-                  {blog.date || 'Recent'}
-                </small>
                 <Button 
                   variant="primary" 
                   size="sm"

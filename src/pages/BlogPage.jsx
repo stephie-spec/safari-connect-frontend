@@ -27,7 +27,7 @@ const BlogPage = ({ blogs, user, onLogout, onSearch }) => {
                 <>
                   <div className="mb-4">
                     <h2>Conservation Blog</h2>
-                    <p className="text-muted">Stories from the frontlines of wildlife conservation</p>
+                    <p className="text-muted">From our community members</p>
                   </div>
                   <BlogsGrid 
                     blogs={blogs}
