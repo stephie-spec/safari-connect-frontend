@@ -7,9 +7,7 @@ const Header = ({ user, onLogout, onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleLogout = () => {
-    if (onLogout) {
       onLogout();
-    }
     navigate('/explore');
   };
 
