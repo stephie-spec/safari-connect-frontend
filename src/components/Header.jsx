@@ -10,7 +10,7 @@ const Header = ({ user, onLogout, onSearch }) => {
     if (onLogout) {
       onLogout();
     }
-    navigate('/');
+    navigate('/explore');
   };
 
   const handleSearch = (e) => {
