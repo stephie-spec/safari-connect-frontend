@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Nav } from 'react-bootstrap';
+import { Card, Nav, Button } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = ({ user }) => {
@@ -8,7 +8,6 @@ const Sidebar = ({ user }) => {
   const navItems = [
     { path: '/explore', icon: 'fas fa-home', label: 'Home' },
     { path: '/blog', icon: 'fas fa-square-rss', label: 'Blog' },
-    ...(user ? [{ path: '/upload', icon: 'fas fa-cloud-arrow-up', label: 'Upload Content' }] : []),
   ];
 
   return (
@@ -30,22 +29,11 @@ const Sidebar = ({ user }) => {
                 {item.label}
               </Nav.Link>
             ))}
-            
-            {!user && (
-              <Nav.Link
-                as={Link}
-                to="/login"
-                className="d-flex align-items-center mb-2 text-dark"
-              >
-                <i className="fas fa-sign-in-alt me-2" style={{ width: '20px' }}></i>
-                Login
-              </Nav.Link>
-            )}
           </Nav>
         </Card.Body>
       </Card>
 
-      {/* Upload Info Card - Only show when not logged in */}
+      {/* Upload Access Section with Button */}
       {!user && (
         <Card className="mb-3 border-warning">
           <Card.Body>
@@ -56,18 +44,38 @@ const Sidebar = ({ user }) => {
               <p className="small text-muted mb-3">
                 Sign in to contribute your own conservation stories and destinations
               </p>
-              <div className="d-grid gap-2">
-                <small className="text-muted">
-                  <i className="fas fa-plus me-1 text-warning"></i>Add new destinations
-                </small>
-                <small className="text-muted">
-                  <i className="fas fa-edit me-1 text-warning"></i>Write blog posts
-                </small>
-                <small className="text-muted">
-                  <i className="fas fa-images me-1 text-warning"></i>Upload photos
-                </small>
-              </div>
+              
+              {/* Upload Button */}
+              <Button 
+                as={Link}
+                to="/login"
+                variant="warning" 
+                className="w-100 mb-3"
+              >
+                <i className="fas fa-sign-in-alt me-2"></i>
+                Login to Upload
+              </Button>
             </div>
+          </Card.Body>
+        </Card>
+      )}
+
+      {/* Show Upload link only when user is logged in */}
+      {user && (
+        <Card className="mb-3">
+          <Card.Body>
+            <Nav className="flex-column">
+              <Nav.Link
+                as={Link}
+                to="/upload"
+                className={`d-flex align-items-center mb-2 ${
+                  location.pathname === '/upload' ? 'active bg-light text-dark rounded' : 'text-dark'
+                }`}
+              >
+                <i className="fas fa-cloud-arrow-up me-2" style={{ width: '20px' }}></i>
+                Upload Content
+              </Nav.Link>
+            </Nav>
           </Card.Body>
         </Card>
       )}
