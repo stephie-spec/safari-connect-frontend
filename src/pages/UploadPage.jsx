@@ -3,6 +3,7 @@ import { Container, Card, Form, Button, Row, Col, Tabs, Tab } from 'react-bootst
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 
 const UploadPage = ({ onDestinationAdded, onBlogAdded, user, onLogout, onSearch }) => {
   const [activeTab, setActiveTab] = useState('destination');
@@ -225,9 +226,7 @@ const UploadPage = ({ onDestinationAdded, onBlogAdded, user, onLogout, onSearch 
           </Col>
         </Row>
       </Container>
-      <footer className="bg-dark text-white text-center py-3 mt-5">
-        <p>Safari Connect - Connecting Natural Wonders</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

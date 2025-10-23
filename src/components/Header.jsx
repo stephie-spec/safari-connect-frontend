@@ -46,7 +46,7 @@ const Header = ({ user, onLogout, onSearch }) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button variant="outline-light" type="submit">
-                <i className="fas fa-search"></i>
+                <i className="bi bi-search"></i>
               </Button>
             </InputGroup>
           </Form>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, Button, Badge } from 'react-bootstrap';
 
-const DestinationsGrid = ({ destinations, onViewDestination }) => {
+function DestinationsGrid({ destinations, onViewDestination }){
   if (!destinations || destinations.length === 0) {
     return <p>No destinations found.</p>;
   }
@@ -31,7 +31,7 @@ const DestinationsGrid = ({ destinations, onViewDestination }) => {
               </Card.Text>
               <div className="d-flex justify-content-between align-items-center mt-auto pt-3 border-top">
                 <small className="text-muted">
-                  <i className="fas fa-map-marker-alt me-1"></i>
+                  <i className="bi bi-geo-alt me-1"></i>
                   {destination.location}
                 </small>
                 <Button 

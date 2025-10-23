@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Row, Col, Card, Badge } from 'react-bootstrap';
 
-const DestinationDetail = ({ destination, onBack }) => {
+function DestinationDetail({ destination, onBack }){
   return (
     <Card>
       <Card.Body>
         <Button variant="outline-secondary" onClick={onBack} className="mb-4">
-          <i className="fas fa-arrow-left me-2"></i>Back to All Destinations
+          <i className="bi bi-arrow-left me-2"></i>Back to All Destinations
         </Button>
 
         <Row>
@@ -29,19 +29,19 @@ const DestinationDetail = ({ destination, onBack }) => {
             <div className="mb-4">
               <Row>
                 <Col xs={6} className="mb-2">
-                  <i className="fas fa-map-marker-alt me-2 text-muted"></i>
+                  <i className="bi bi-geo-alt me-2 text-muted"></i>
                   <span>{destination.location}</span>
                 </Col>
                 <Col xs={6} className="mb-2">
-                  <i className="fas fa-star me-2 text-muted"></i>
+                  <i className="bi bi-star me-2 text-muted"></i>
                   <span>{destination.keyFeature}</span>
                 </Col>
                 <Col xs={6} className="mb-2">
-                  <i className="fas fa-mountain me-2 text-muted"></i>
+                  <i className="bi bi-mountain me-2 text-muted"></i>
                   <span>{destination.area}</span>
                 </Col>
                 <Col xs={6} className="mb-2">
-                  <i className="fas fa-calendar-alt me-2 text-muted"></i>
+                  <i className="bi bi-calendar me-2 text-muted"></i>
                   <span>Est. {destination.established}</span>
                 </Col>
               </Row>

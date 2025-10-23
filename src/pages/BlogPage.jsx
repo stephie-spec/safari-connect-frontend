@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 
@@ -14,7 +14,10 @@ const BlogPage = ({ blogs, user, onLogout, onSearch }) => {
               <Sidebar user={user} />
             </Col>
             <Col md={9}>
-              <p>No blog posts yet.</p>
+              <div className="text-center py-5">
+                <h2>Conservation Blog</h2>
+                <p className="text-muted">No blog posts yet. Be the first to share a conservation story!</p>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -36,32 +39,33 @@ const BlogPage = ({ blogs, user, onLogout, onSearch }) => {
             <Sidebar user={user} />
           </Col>
           <Col md={9}>
-            <h2 className="mb-4">Blog</h2>
+            <div className="mb-4">
+              <h2>Conservation Blog</h2>
+              <p className="text-muted">Stories from the frontlines of wildlife conservation</p>
+            </div>
+            
             <Row>
               {blogs.map(blog => (
-                <Col key={blog.id} lg={6} className="mb-4">
-                  <Card className="h-100">
-                    <Card.Img 
-                      variant="top" 
-                      src={blog.image} 
-                      alt={blog.title}
-                      style={{ height: '200px', objectFit: 'cover' }}
-                    />
-                    <Card.Body className="d-flex flex-column">
-                      <div className="mb-2">
-                        {blog.tags && blog.tags.map((tag, index) => (
-                          <Badge key={index} bg="secondary" className="me-1 mb-1">
-                            {tag}
-                          </Badge>
+                <Col key={blog.id} lg={8} className="mb-4 mx-auto">
+                  <Card className="blog-card">
+                    <Card.Body className="p-4">
+                      <div className="mb-3">
+                        <span className="badge bg-warning text-dark">{blog.category}</span>
+                      </div>
+                      
+                      <Card.Title className="h3 mb-3">{blog.title}</Card.Title>
+                      
+                      <div className="blog-content">
+                        {blog.content.split('\n').map((paragraph, index) => (
+                          <p key={index} className="mb-3">
+                            {paragraph}
+                          </p>
                         ))}
                       </div>
-                      <Card.Title>{blog.title}</Card.Title>
-                      <Card.Text className="flex-grow-1 text-muted">
-                        {blog.excerpt}
-                      </Card.Text>
-                      <div className="mt-auto pt-3 border-top">
+                      
+                      <div className="mt-4 pt-3 border-top">
                         <small className="text-muted">
-                          By {blog.author} • {blog.date}
+                          Category: {blog.category}
                         </small>
                       </div>
                     </Card.Body>

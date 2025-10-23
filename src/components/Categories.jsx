@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, ButtonGroup } from 'react-bootstrap';
 
-const Categories = ({ currentCategory, onCategoryChange }) => {
+function Categories({ currentCategory, onCategoryChange }){
   const categories = [
     { key: 'all', label: 'All Destinations' },
     { key: 'National Parks & Reserves', label: 'National Parks' },

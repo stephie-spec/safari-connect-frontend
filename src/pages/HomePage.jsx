@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 import DestinationsGrid from '../components/DestinationsGrid';
 import DestinationDetail from '../components/DestinationDetail';
 import Categories from '../components/Categories';
@@ -52,11 +53,7 @@ function HomePage({ destinations, searchQuery, user, onLogout, onSearch }){
           </Col>
         </Row>
       </Container>
-      <footer className="bg-dark text-white text-center py-3 mt-5">
-        <div className="footer-content">
-          <p>Safari Connect - Connecting Natural Wonders</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

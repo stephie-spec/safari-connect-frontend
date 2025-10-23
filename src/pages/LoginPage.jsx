@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 
 const LoginPage = ({ onLogin }) => {
   const navigate = useNavigate();
@@ -92,11 +93,7 @@ const LoginPage = ({ onLogin }) => {
           </Col>
         </Row>
       </Container>
-      <footer className="bg-dark text-white text-center py-3 mt-5">
-        <div className="footer-content">
-          <p>Safari Connect - Connecting Natural Wonders</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -2,12 +2,12 @@ import React from 'react';
 import { Card, Nav, Button } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
-const Sidebar = ({ user }) => {
+function Sidebar({ user }){
   const location = useLocation();
 
-  const navItems = [
-    { path: '/explore', icon: 'fas fa-home', label: 'Home' },
-    { path: '/blog', icon: 'fas fa-square-rss', label: 'Blog' },
+const navItems = [
+    { path: '/explore', icon: 'bi-house', label: 'Home' },
+    { path: '/blog', icon: 'bi-journal-text', label: 'Blog' },
   ];
 
   return (
@@ -33,26 +33,24 @@ const Sidebar = ({ user }) => {
         </Card.Body>
       </Card>
 
-      {/* Upload Access Section with Button */}
       {!user && (
         <Card className="mb-3 border-warning">
           <Card.Body>
             <Card.Title className="border-bottom pb-2 mb-3">
-              <i className="fas fa-lock me-2 text-warning"></i>Upload Access
+              <i className="bi bi-lock me-2 text-warning"></i>Upload Access
             </Card.Title>
             <div className="text-center">
               <p className="small text-muted mb-3">
                 Sign in to contribute your own conservation stories and destinations
               </p>
               
-              {/* Upload Button */}
               <Button 
                 as={Link}
                 to="/login"
                 variant="warning" 
                 className="w-100 mb-3"
               >
-                <i className="fas fa-sign-in-alt me-2"></i>
+                <i className="bi bi-box-arrow-in-right me-2"></i>
                 Login to Upload
               </Button>
             </div>
@@ -60,7 +58,6 @@ const Sidebar = ({ user }) => {
         </Card>
       )}
 
-      {/* Show Upload link only when user is logged in */}
       {user && (
         <Card className="mb-3">
           <Card.Body>
@@ -72,7 +69,7 @@ const Sidebar = ({ user }) => {
                   location.pathname === '/upload' ? 'active bg-light text-dark rounded' : 'text-dark'
                 }`}
               >
-                <i className="fas fa-cloud-arrow-up me-2" style={{ width: '20px' }}></i>
+                <i className="bi bi-cloud-arrow-up me-2" style={{ width: '20px' }}></i>
                 Upload Content
               </Nav.Link>
             </Nav>
@@ -80,19 +77,18 @@ const Sidebar = ({ user }) => {
         </Card>
       )}
 
-      {/* Conservation Stats */}
       <Card>
         <Card.Body>
           <Card.Title className="border-bottom pb-2 mb-3">Conservation Stats</Card.Title>
           <div className="stats">
             <p className="mb-2">
-              <i className="fas fa-paw me-2"></i>15+ Protected Areas
+              <i className="bi bi-shield-check me-2"></i>15+ Protected Areas
             </p>
             <p className="mb-2">
-              <i className="fas fa-tree me-2"></i>100+ Species
+              <i className="bi bi-tree me-2"></i>100+ Species
             </p>
             <p className="mb-0">
-              <i className="fas fa-users me-2"></i>50K+ Visitors
+              <i className="bi bi-people me-2"></i>50K+ Visitors
             </p>
           </div>
         </Card.Body>
