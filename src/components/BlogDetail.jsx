@@ -15,13 +15,6 @@ const BlogDetail = ({ blog, onBack }) => {
         </div>
         
         <h1 className="mb-4">{blog.title}</h1>
-        
-        <div className="mb-4">
-          <small className="text-muted">
-            <i className="bi bi-calendar me-1"></i>
-            Published on {blog.date || 'Recent'}
-          </small>
-        </div>
 
         <div className="blog-content">
           {blog.content.split('\n').map((paragraph, index) => (
