@@ -2,16 +2,6 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
 const BlogDetail = ({ blog, onBack }) => {
-  if (!blog) {
-    return (
-      <div className="alert alert-danger text-center">
-        <h4>Blog Post Not Found</h4>
-        <Button onClick={onBack} className="mt-2">
-          Back to All Blogs
-        </Button>
-      </div>
-    );
-  }
 
   return (
     <Card>
@@ -41,11 +31,6 @@ const BlogDetail = ({ blog, onBack }) => {
           ))}
         </div>
 
-        <div className="mt-5 pt-4 border-top">
-          <Button variant="outline-secondary" onClick={onBack}>
-            <i className="bi bi-arrow-left me-2"></i>Back to All Blogs
-          </Button>
-        </div>
       </Card.Body>
     </Card>
   );

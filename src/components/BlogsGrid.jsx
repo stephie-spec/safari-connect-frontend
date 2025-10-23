@@ -2,14 +2,6 @@ import React from 'react';
 import { Row, Col, Card, Button, Badge } from 'react-bootstrap';
 
 const BlogsGrid = ({ blogs, onViewBlog }) => {
-  if (!blogs || blogs.length === 0) {
-    return (
-      <div className="text-center py-5">
-        <h5>No blog posts yet</h5>
-        <p className="text-muted">Be the first to share a conservation story!</p>
-      </div>
-    );
-  }
 
   return (
     <Row>

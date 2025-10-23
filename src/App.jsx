@@ -15,7 +15,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Your MockAPI URLs (replace with your actual URLs)
   const DESTINATIONS_API = 'https://68fa13b4ef8b2e621e7eae35.mockapi.io/destinations';
   const BLOGS_API = 'https://68fa13b4ef8b2e621e7eae35.mockapi.io/blogs';
 

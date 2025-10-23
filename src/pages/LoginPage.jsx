@@ -10,7 +10,7 @@ const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('demo@example.com');
   const [password, setPassword] = useState('password');
 
-  const handleDemoLogin = () => {
+  const handleLogin = () => {
     const userData = {
       id: 1,
       name: 'Demo User',
@@ -22,7 +22,7 @@ const LoginPage = ({ onLogin }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    handleDemoLogin();
+    handleLogin();
   };
 
   return (

@@ -2,9 +2,6 @@ import React from 'react';
 import { Row, Col, Card, Button, Badge } from 'react-bootstrap';
 
 function DestinationsGrid({ destinations, onViewDestination }){
-  if (!destinations || destinations.length === 0) {
-    return <p>No destinations found.</p>;
-  }
 
   return (
     <Row>
