@@ -189,20 +189,11 @@ header {
   border-radius: 30px;
   cursor: pointer;
   font-size: 14px;
-  transition: all 0.3s ease;
 }
 
 .category-btn.active {
   background: #6f784d;
   color: white;
-}
-
-.category-btn:hover {
-  background: #e0e0e0;
-}
-
-.category-btn.active:hover {
-  background: #5a6340;
 }
 
 .main-content {

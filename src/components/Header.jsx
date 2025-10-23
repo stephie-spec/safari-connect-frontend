@@ -24,9 +24,9 @@ const Header = ({ user, onLogout, onSearch }) => {
     <Navbar bg="dark" variant="dark" expand="lg" className="px-3">
       <Navbar.Brand as={Link} to="/explore" className="d-flex align-items-center">
         <img
-          src="data/images/safariconnect-1.jpg"
-          width="80"
-          height="40"
+          src="data/images/safariconnect.png"
+          width="50"
+          height="50"
           className="d-inline-block align-top me-2 rounded"
           alt="Safari Connect logo"
         />

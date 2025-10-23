@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, ButtonGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 function Categories({ currentCategory, onCategoryChange }){
   const categories = [
@@ -20,19 +20,17 @@ function Categories({ currentCategory, onCategoryChange }){
     <Card className="mb-4">
       <Card.Body>
         <Card.Title>Explore by Category</Card.Title>
-        <ButtonGroup className="flex-wrap">
+        <div className="category-buttons">
           {categories.map(category => (
-            <Button
+            <button
               key={category.key}
-              variant={currentCategory === category.key ? 'primary' : 'outline-primary'}
-              size="sm"
-              className="m-1 rounded-pill"
+              className={`category-btn ${currentCategory === category.key ? 'active' : ''}`}
               onClick={() => onCategoryChange(category.key)}
             >
               {category.label}
-            </Button>
+            </button>
           ))}
-        </ButtonGroup>
+        </div>
       </Card.Body>
     </Card>
   );
