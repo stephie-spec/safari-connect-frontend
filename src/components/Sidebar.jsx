@@ -31,7 +31,6 @@ const Sidebar = ({ user }) => {
               </Nav.Link>
             ))}
             
-            {/* Login Button - Only show when not logged in */}
             {!user && (
               <Nav.Link
                 as={Link}
@@ -39,7 +38,7 @@ const Sidebar = ({ user }) => {
                 className="d-flex align-items-center mb-2 text-dark"
               >
                 <i className="fas fa-sign-in-alt me-2" style={{ width: '20px' }}></i>
-                Login to Upload
+                Login
               </Nav.Link>
             )}
           </Nav>

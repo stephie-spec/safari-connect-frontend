@@ -22,7 +22,6 @@ const UploadPage = ({ onDestinationAdded, onBlogAdded, user, onLogout, onSearch 
 
   const [blogForm, setBlogForm] = useState({
     title: '',
-    author: '',
     content: '',
     category: 'Learn'
   });
