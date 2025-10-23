@@ -7,7 +7,7 @@ function Sidebar({ user }){
 
 const navItems = [
     { path: '/explore', icon: 'bi-house', label: 'Home' },
-    { path: '/blog', icon: 'bi-journal-text', label: 'Blog' },
+    { path: '/blog', icon: 'bi-journal-text', label: 'Conservation Blog' },
   ];
 
   return (
