@@ -15,25 +15,41 @@ function App() {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const API_BASE = '/api';
+  // Your MockAPI URLs (replace with your actual URLs)
+  const DESTINATIONS_API = 'https://68fa13b4ef8b2e621e7eae35.mockapi.io/destinations';
+  const BLOGS_API = 'https://68fa13b4ef8b2e621e7eae35.mockapi.io/blogs';
 
   useEffect(() => {
-    fetch(`${API_BASE}/destinations`)
-      .then(response => response.json())
-      .then(data => setDestinations(data));
-
-    fetch(`${API_BASE}/blogs`)
-      .then(response => response.json())
-      .then(data => setBlogs(data));
+    fetchDestinations();
+    fetchBlogs();
   }, []);
 
-  const handleLogin = () => {
-    const demoUser = {
-      id: 1,
-      name: "Jane Doe",
-      email: "demo@safariconnect.com"
-    };
-    setUser(demoUser);
+  const fetchDestinations = () => {
+    fetch(DESTINATIONS_API)
+      .then(response => response.json())
+      .then(data => {
+        setDestinations(data || []);
+      })
+      .catch(error => {
+        console.error('Error fetching destinations:', error);
+        setDestinations([]);
+      });
+  };
+
+  const fetchBlogs = () => {
+    fetch(BLOGS_API)
+      .then(response => response.json())
+      .then(data => {
+        setBlogs(data || []);
+      })
+      .catch(error => {
+        console.error('Error fetching blogs:', error);
+        setBlogs([]);
+      });
+  };
+
+  const handleLogin = (userData) => {
+    setUser(userData);
   };
 
   const handleLogout = () => {
@@ -45,7 +61,7 @@ function App() {
   };
 
   const addDestination = (destinationData) => {
-    fetch(`${API_BASE}/destinations`, {
+    fetch(DESTINATIONS_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,11 +71,14 @@ function App() {
       .then(response => response.json())
       .then(newDestination => {
         setDestinations(prev => [...prev, newDestination]);
+      })
+      .catch(error => {
+        console.error('Error adding destination:', error);
       });
   };
 
   const addBlog = (blogData) => {
-    fetch(`${API_BASE}/blogs`, {
+    fetch(BLOGS_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,6 +88,9 @@ function App() {
       .then(response => response.json())
       .then(newBlog => {
         setBlogs(prev => [...prev, newBlog]);
+      })
+      .catch(error => {
+        console.error('Error adding blog:', error);
       });
   };
 
@@ -107,9 +129,7 @@ function App() {
               <LoginPage onLogin={handleLogin} />
             )
           } />
-          <Route path="/login" element={
-            <LoginPage onLogin={handleLogin} />
-          } />
+          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         </Routes>
       </div>
     </Router>
