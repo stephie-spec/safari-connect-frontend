@@ -55,13 +55,8 @@ const UploadPage = ({ onDestinationAdded, onBlogAdded, user, onLogout, onSearch 
     
     const blogData = {
       title: blogForm.title,
-      author: blogForm.author,
       content: blogForm.content,
-      category: blogForm.category,
-      excerpt: blogForm.content.substring(0, 150) + '...',
-      image: '/images/default-blog.jpg',
-      tags: ['conservation'],
-      date: new Date().toISOString().split('T')[0]
+      category: blogForm.category
     };
 
     onBlogAdded(blogData);
@@ -181,15 +176,6 @@ const UploadPage = ({ onDestinationAdded, onBlogAdded, user, onLogout, onSearch 
                             <Form.Control 
                               value={blogForm.title}
                               onChange={(e) => setBlogForm({...blogForm, title: e.target.value})}
-                              required
-                            />
-                          </Form.Group>
-
-                          <Form.Group className="mb-3">
-                            <Form.Label>Author</Form.Label>
-                            <Form.Control 
-                              value={blogForm.author}
-                              onChange={(e) => setBlogForm({...blogForm, author: e.target.value})}
                               required
                             />
                           </Form.Group>
