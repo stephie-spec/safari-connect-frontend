@@ -13,9 +13,7 @@ const Header = ({ user, onLogout, onSearch }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (onSearch) {
       onSearch(searchQuery);
-    }
   };
 
   return (
