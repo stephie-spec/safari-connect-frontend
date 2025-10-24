@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Header = ({ user, onLogout, onSearch }) => {
   const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [headerSearchQuery, setHeaderSearchQuery] = useState('');
 
   const handleLogout = () => {
       onLogout();
@@ -13,16 +13,16 @@ const Header = ({ user, onLogout, onSearch }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-      onSearch(searchQuery);
+      onSearch(headerSearchQuery);
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="px-3">
+    <Navbar variant="dark" style={{backgroundColor:'#6f784d'}} expand="lg" className="px-3">
       <Navbar.Brand as={Link} to="/explore" className="d-flex align-items-center">
         <img
-          src="data/images/safariconnect.png"
-          width="50"
-          height="50"
+          src="data/images/safariconnect-1.jpg"
+          width="100"
+          height="40"
           className="d-inline-block align-top me-2 rounded"
           alt="Safari Connect logo"
         />
@@ -38,8 +38,8 @@ const Header = ({ user, onLogout, onSearch }) => {
               <Form.Control
                 type="text"
                 placeholder="Search destinations"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value={headerSearchQuery}
+                onChange={(e) => setHeaderSearchQuery(e.target.value)}
               />
               <Button variant="outline-light" type="submit">
                 <i className="bi bi-search"></i>
